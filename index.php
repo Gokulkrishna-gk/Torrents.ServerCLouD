@@ -23,11 +23,11 @@ www.amitjakhu.com
 <!--META-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Torrents.ServerClouD</title>
-<link rel="shortcut icon" href="//cdn.servercd.tk/favicon.ico">
-<link rel="icon" sizes="16x16 32x32" href="//cdn.servercd.tk/favicon.ico">
+<link rel="shortcut icon" href="//cdn.servercd.cf/favicon.ico">
+<link rel="icon" sizes="16x16 32x32" href="//cdn.servercd.cf/favicon.ico">
 
 <!--STYLESHEETS-->
-<link href="//cdn.servercd.tk/servercd/torrents/style-index.css" rel="stylesheet" type="text/css" />
+<link href="//cdn.servercd.cf/servercd/torrents/style-index.css" rel="stylesheet" type="text/css" />
 
 <!--SCRIPTS-->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>

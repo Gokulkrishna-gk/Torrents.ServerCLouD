@@ -1,13 +1,13 @@
 <html>
 <head>
 <title>Knock,Knock - Torrents.ServerClouD</title>
-<link rel="shortcut icon" href="//cdn.servercd.tk/favicon.ico">
-<link rel="icon" sizes="16x16 32x32" href="//cdn.servercd.tk/favicon.ico">
+<link rel="shortcut icon" href="//cdn.servercd.cf/favicon.ico">
+<link rel="icon" sizes="16x16 32x32" href="//cdn.servercd.cf/favicon.ico">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="//cdn.servercd.tk/servercd/torrents/style-reg.css" rel="stylesheet" id="torrents-css">
-<script src="//cdn.servercd.tk/servercd/torrents/js.js"></script>
+<link href="//cdn.servercd.cf/servercd/torrents/style-reg.css" rel="stylesheet" id="torrents-css">
+<script src="//cdn.servercd.cf/servercd/torrents/js.js"></script>
 </head>
 <body id="register" onload="document.getElementById('start-here').focus()">
 

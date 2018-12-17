@@ -25,14 +25,14 @@ function get_key($bit_length = 128){
 $current_user = array();
 $current_user['loggedin'] = false;
 
-if (isset($_COOKIE['test_session']) && trim($_COOKIE['test_session']) != '') { // user has a session already?
+if (isset($_COOKIE['torrents_svrcd_session']) && trim($_COOKIE['torrents_svrcd_session']) != '') { // user has a session already?
 	
 	require_once('dbconn_mysql.php');
 	
-	$user_session_complete_token = trim($_COOKIE['test_session']);
+	$user_session_complete_token = trim($_COOKIE['torrents_svrcd_session']);
 	if (strpos($user_session_complete_token, ':') === false) {
 		// invalid token format
-		header('Location: /logout/');
+		header('Location: logout.php');
 		die();
 	} else {
 		// using the proper session key/secret token system
@@ -53,10 +53,10 @@ if (isset($_COOKIE['test_session']) && trim($_COOKIE['test_session']) != '') { /
 			$current_user['loggedin'] = true;
 			$current_user['user_id'] = $current_user_id;
 			$new_session_key_expires = time() + (60*60*24*30);
-			setcookie('test_session', $user_session_complete_token, $new_session_key_expires, '/', 'cylesoft.com');
+			setcookie('torrents_svrcd_session', $user_session_complete_token, $new_session_key_expires, '/', 'torrents.servercd.cf');
 			$update_session_expiry = $mysqli->query("UPDATE user_sessions SET expires=$new_session_key_expires WHERE session_key=$user_session_key_db AND user_id=$current_user_id");
 			if ($_SERVER['PHP_SELF'] == 'index.php') {
-				header('Location: protected.php');
+				header('Location: dashboard.php');
 				die();
 			}
 		} else {
@@ -122,7 +122,7 @@ if (isset($_COOKIE['test_session']) && trim($_COOKIE['test_session']) != '') { /
 		$new_session_secret_salt = substr(get_key(256), 0, 22); // make a new 22-character salt
 		$new_session_secret_hash = crypt($new_session_secret, '$2y$12$' . $new_session_secret_salt);
 		$new_session_key_expires = time() + (60*60*24*30);
-		setcookie('test_session', $new_session_complete_token, $new_session_key_expires, '/', 'cylesoft.com');
+		setcookie('torrents_svrcd_session', $new_session_complete_token, $new_session_key_expires, '/', 'torrents.servercd.cf');
 		
 		// write session to database with hashed secret
 		$new_session_key_db = "'".$mysqli->escape_string($new_session_key)."'";
@@ -130,7 +130,7 @@ if (isset($_COOKIE['test_session']) && trim($_COOKIE['test_session']) != '') { /
 		$new_session_row = $mysqli->query("INSERT INTO user_sessions (session_key, session_secret, user_id, expires, ts) VALUES ($new_session_key_db, $new_session_secret_hash_db, $current_user_id, $new_session_key_expires, UNIX_TIMESTAMP())");		
 		
 		// logged in, cool
-		header('Location: protected.php');
+		header('Location: dashboard.php');
 		die();
 	} else {
 		if (!$has_flood_control_limit) {
@@ -148,6 +148,6 @@ if (isset($_COOKIE['test_session']) && trim($_COOKIE['test_session']) != '') { /
 
 ?>
 <head>
-<link rel="shortcut icon" href="//cdn.servercd.tk/favicon.ico">
-<link rel="icon" sizes="16x16 32x32" href="//cdn.servercd.tk/favicon.ico">
+<link rel="shortcut icon" href="//cdn.servercd.cf/favicon.ico">
+<link rel="icon" sizes="16x16 32x32" href="//cdn.servercd.cf/favicon.ico">
 </head>
